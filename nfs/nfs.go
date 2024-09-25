@@ -7,14 +7,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pkg/errors"
-	"github.com/sirupsen/logrus"
-
-	mount "k8s.io/mount-utils"
-
 	"github.com/longhorn/backupstore"
 	"github.com/longhorn/backupstore/fsops"
 	"github.com/longhorn/backupstore/util"
+	"github.com/pkg/errors"
+	"github.com/sirupsen/logrus"
+	mount "k8s.io/mount-utils"
 )
 
 var (
@@ -129,7 +127,7 @@ func (b *BackupStoreDriver) mount() error {
 				fmt.Sprintf("nfsvers=%v", version),
 				"actimeo=1",
 				"soft",
-				"timeo=300",
+				"timeo=30",
 				"retry=2",
 			}
 			sensitiveMountOptions := []string{}
